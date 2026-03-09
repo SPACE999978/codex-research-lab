@@ -1,6 +1,6 @@
-# codex-research-lab
+# Amoeba Research Lab
 
-A **concept fork** inspired by `karpathy/autoresearch`, but aimed at a broader, more controllable workflow for **Codex-driven AI model research**.
+A **concept fork** inspired by `karpathy/autoresearch`, but aimed at a broader, more controllable workflow for **Codex-driven Amoeba market testing and market research**.
 
 This repo is **not** a 1:1 mirror of the upstream project.
 It keeps the useful idea — agentic experimentation around a small, measurable training loop — but moves in a different direction:
@@ -33,12 +33,12 @@ Instead of treating the model code as the only “research surface”, this repo
 
 That makes it easier to adapt the setup to:
 
-- local single-GPU training
-- Apple Silicon / MLX forks
-- eval-heavy workflows
-- inference optimization loops
-- small architecture-search projects
-- dataset / tokenization experiments
+- Amoeba market testing workflows
+- market research loops
+- eval-heavy business experiments
+- inference / agent optimization loops
+- small decision-policy experiments
+- dataset / prompt / tooling iterations
 
 ---
 
@@ -59,7 +59,7 @@ This repo moves in a different direction:
 - **research policy** is separated from **training backend**
 - the repo is meant to be adapted to **your own trainer**, not just one inherited one
 
-Think of this as a **research operating system skeleton** rather than a literal training repo.
+Think of this as an **Amoeba research operating system skeleton** rather than a literal training repo.
 
 ---
 
