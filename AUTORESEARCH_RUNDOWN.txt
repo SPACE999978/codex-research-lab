@@ -1,0 +1,87 @@
+AUTORESEARCH / CODEX RESEARCH LAB RUNDOWN
+=========================================
+
+What the original karpathy/autoresearch repo does
+-------------------------------------------------
+
+The original project is a very small agentic-research setup for language-model training.
+The key idea is to give an AI coding agent a tiny but real training environment and let it
+run repeated experiments automatically.
+
+The basic loop is:
+- change the training code
+- run a short training job
+- measure whether the result improved
+- keep the change if it helps
+- discard it if it does not
+- repeat many times
+
+Why it is interesting
+---------------------
+
+It turns model research into an iterative optimization loop that an agent can handle.
+Instead of using the agent only to answer questions, you use it as a researcher that:
+- proposes changes
+- edits code
+- runs benchmarks
+- logs results
+- advances only when the metric improves
+
+What makes the original design strong
+-------------------------------------
+
+1. It is intentionally small.
+2. The metric is fixed and comparable.
+3. The time budget is fixed.
+4. The editable surface is tightly scoped.
+5. The human mostly edits the instructions, not every experiment by hand.
+
+What this new repo changes
+--------------------------
+
+This repo is not a literal copy.
+It takes the useful core idea and reframes it as a Codex-oriented research framework.
+
+Instead of shipping one exact trainer and saying “only edit this file,” it gives you:
+- a Codex integration guide
+- a reusable research prompt/program
+- experiment logging templates
+- run setup scripts
+- a structure you can attach to your own model codebase
+
+How it plugs into Codex
+-----------------------
+
+You run Codex inside the repo that contains your training or eval code.
+Then you give it the research program from programs/codex_research_program.md.
+Codex should:
+- read the target and constraints
+- inspect the allowed files
+- create a run branch/tag
+- run a baseline
+- try one experiment at a time
+- log every result
+- keep only improvements
+
+In other words, Codex becomes the worker inside a research operating loop.
+
+Best use cases
+--------------
+
+- small language-model training experiments
+- optimizer sweeps
+- architecture simplification passes
+- inference benchmarking
+- eval-driven improvement loops
+- local hardware-specific tuning
+
+Main caution
+------------
+
+This only works well if the task is measurable and bounded.
+If the agent can edit too many files, the loop gets noisy.
+If the metric is vague, the loop gets stupid.
+If the runs are too slow, iteration dies.
+
+So the trick is not “use an agent.”
+The trick is “design a good experimental game for the agent to play.”

@@ -1,0 +1,17 @@
+project_name: example-model-research
+metric_name: val_bpb
+metric_direction: lower
+hardware: single_gpu
+max_wall_clock_seconds: 300
+run_command: "uv run train.py > run.log 2>&1"
+result_grep: "grep '^val_bpb:\|^peak_vram_mb:' run.log"
+in_scope_files:
+  - train.py
+  - programs/codex_research_program.md
+out_of_scope_files:
+  - prepare.py
+  - pyproject.toml
+notes:
+  - Keep experiments comparable.
+  - Baseline first.
+  - One experiment at a time.
